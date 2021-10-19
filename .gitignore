@@ -79,3 +79,5 @@ functions/node_modules/
 
 ui-debug.log
 firebase.json 
+
+package-lock.json
