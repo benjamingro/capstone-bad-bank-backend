@@ -1,8 +1,8 @@
-# MIT xPRO Professional Certificate Full Stack Engineering 
+# MIT xPRO Professional Certificate in Full Stack Engineering 
 ## Bad Bank Capstone Project November 2021
 
 ### Introduction
-This the back-end part of a Bad Bank project completed in fulfillment of MIT xPRO Professional Certificate Full Stack Engineering course. It uses the following cloud architecture. 
+This the back-end part of a Bad Bank project completed in fulfillment of the MIT xPRO Professional Certificate Full Stack Engineering course. It uses the following cloud architecture. 
 
 <img src="README_images/Image1.png" alt="drawing" width="400"/>
 
