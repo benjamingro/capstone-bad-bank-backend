@@ -67,3 +67,13 @@ node_modules/
 
 ui-debug.log
 secrets/ 
+
+cloud_sql_proxy
+
+functions/secrets/
+functions/cloudsql/
+
+.firebaserc
+
+ui-debug.log
+firebase.json 

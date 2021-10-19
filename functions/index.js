@@ -5,8 +5,7 @@
 const functions = require("firebase-functions");
 
 const admin = require("firebase-admin");
-const serviceAccount = require("../secrets/mit-xpro-319116-firebase-adminsdk-q8fc2-4e20db433b.json");
-// const serviceAccount = require("../secrets/mit-xpro-319116-firebase-adminsdk-q8fc2-525e7b9976.json");
+const serviceAccount = require("./secrets/mit-xpro-319116-firebase-adminsdk-q8fc2-4e20db433b.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -14,9 +13,6 @@ admin.initializeApp({
 });
 
 const mySqlDb = require("./database");
-
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
     functions.logger.info("Hello logs!", { structuredData: true });
@@ -466,8 +462,8 @@ exports.createGoogleUserAccount_Authenticated = functions.https.onRequest(async 
 
 function getQuery(queryString) {
     return new Promise((resolve, reject) => {
-        // mySqlDb.createUnixSocketPool()
-        mySqlDb.createTcpPool()
+        mySqlDb.createUnixSocketPool()
+        // mySqlDb.createTcpPool()
             .then((pool) => {
                 //   const queryString = "SELECT Fname FROM CustomersTable WHERE Fname LIKE '%shaq%';";
                 pool.query(queryString)
@@ -476,15 +472,12 @@ function getQuery(queryString) {
                     })
                     .catch((error) => {
                         functions.logger.error("error inside pool.query", { structuredData: true });
-                        console.log("error inside pool.query");
                         reject(error);
                     });
             })
             .catch((error) => {
                 functions.logger.error("error inside createPool", { structuredData: true });
-                console.log("error inside createPool");
                 functions.logger.error(error, { structuredData: true });
-                // reject(new Error("sql_error"));
                 reject(error);
             });
     });
