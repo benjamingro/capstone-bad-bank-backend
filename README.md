@@ -6,6 +6,9 @@ This the back-end part of a Bad Bank project completed in fulfillment of the MIT
 
 <img src="README_images/Image1.png" alt="drawing" width="400"/>
 
+### API Docs
+Available in this repo as api_doc.yml and available online at [https://mit-xpro-319116.web.app/api-docs.html](https://mit-xpro-319116.web.app/api-docs.html).
+
 ### Deployment
 After cloning this repo, development and deployment it to Google Cloud Platform (GCP) may be accomplished using the following steps.
 
