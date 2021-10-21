@@ -19,7 +19,13 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
     response.send("Hello from Firebase!");
 });
 
-
+/**
+ * @swagger
+ * /createUserAccount_Authenticated:
+ *  post:
+ *      description: Creates a user account after user signs in with email
+ *      responses: 
+ */
 
 exports.createUserAccount_Authenticated = functions.https.onRequest((request, response) => {
     // request object :
@@ -156,6 +162,7 @@ exports.getUserAccount_Authenticated = functions.https.onRequest((request, respo
     // response object 
     // 'authentication_failed'
     // 'sql_error'
+    // 'user_not_set_up'
     //  {   CustomerId:'ben@nutrition.engineering',
     //      Fname:"Ben",
     //      Lname:"Gross",

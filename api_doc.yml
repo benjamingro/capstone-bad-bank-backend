@@ -1,0 +1,95 @@
+openapi: '3.0.2'
+info:
+  title: Bad Bank Backend API
+  version: '1.0'
+servers:
+  - url: https://us-central1-mit-xpro-319116.cloudfunctions.net/
+paths:
+  /createUserAccount_Authenticated:
+    post:
+      description: Creates new user after email authentication
+      responses:
+        200:
+          description: Stringified BadBankUser object or message string 'authentication_failed' or 'sql_error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newUserObject'
+  
+  /createGoogleUserAccount_Authenticated:
+    post:
+      description: Creates new user after google authentication
+      responses:
+        200:
+          description: Stringified BadBankUser object or message string 'authentication_failed' or 'sql_error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newUserObject'
+  
+  /getUserAccount_Authenticated:
+    post:
+      description: Gets the stringified BadBankUser object with an authentication token
+      responses:
+        200:
+          description: Stringified BadBankUser object or message string 'authentication_failed', 'sql_error', or 'user_not_set_up'
+      requestBody:
+        description: the authentication token
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+  /deposit_Authenticated:
+    post:
+      description: Handles deposit requests on behalf of Bad Bank customers
+      responses:
+        200:
+          description: Stringified BadBankUser object with updated account balance and transaction history or message string 'authentication_failed' or 'sql_error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/transactionRequestObject'
+  /withdraw_Authenticated:
+    post:
+      description: Handles deposit requests on behalf of Bad Bank customers
+      responses:
+        200:
+          description: Stringified BadBankUser object with updated account balance and transaction history or message string 'authentication_failed' or 'sql_error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/transactionRequestObject'
+              
+components:
+  schemas:
+    newUserObject:
+      type: object
+      required:
+        - Fname
+        - Lname
+        - id_token
+      properties: 
+        Fname:
+          type: string
+        Lname:
+          type: string
+        id_token:
+          type: string
+        Telephone:
+          type: string
+    transactionRequestObject:
+      type: object
+      required:
+        - id_token
+        - amount
+      properties: 
+        id_token:
+          type: string
+        amount:
+          type: string
+        
